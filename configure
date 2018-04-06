@@ -1,0 +1,43 @@
+#!/bin/bash
+shopt -s nocasematch
+
+BUILD_TYPE="Release"
+
+#export C=gcc-5
+#export CXX=g++-5
+
+# Parse command line arguments
+if [ "$#" -gt 0 ]; then
+    BUILD_TYPE=$1
+fi
+
+if [[ "$BUILD_TYPE" = "clean" ]]; then
+    echo "Cleaning..."
+    rm -rf build
+    #rm -rf cov
+
+    echo "Done."
+    exit 1;
+fi
+
+# Configure build
+echo -e "Configuring [$BUILD_TYPE]...\n"
+
+# Create build directory
+if [ ! -d "./build" ]
+then
+    mkdir -p build
+fi
+
+cd build
+cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+      -DCMAKE_CXX_COMPILER=`which g++` ..
+
+if [ $? == 0 ]
+then
+    echo -e "\nDone.";
+    echo -e "\nTo build the project:";
+    echo -e "\tcd build && make"
+else
+    echo "Configuration failed.";
+fi
