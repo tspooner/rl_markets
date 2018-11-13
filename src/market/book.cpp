@@ -254,7 +254,8 @@ bool Book<C, DEPTH>::PlaceOrder(double price, long size)
     if (OrderExists(it))
         return false;
     else {
-        open_orders.emplace(price, make_unique<Order>(price, size, volume(price)));
+        open_orders.emplace(price, unique_ptr<Order>(new Order(price, size, volume(price))));
+        // open_orders.emplace(price, make_unique<Order>(price, size, volume(price)));
 
         return true;
     }
