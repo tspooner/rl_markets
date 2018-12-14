@@ -29,10 +29,15 @@ Note there may be certain issues with shared_ptr types across machines
 Please use the following bibtex entry if citing this work.
 
 ```
-@article{spooner2018market,
-  title={Market Making via Reinforcement Learning},
+@inproceedings{spooner2018market,
   author={Spooner, Thomas and Fearnley, John and Savani, Rahul and Koukorinis, Andreas},
-  journal={arXiv preprint arXiv:1804.04216},
-  year={2018}
+  title={Market Making via Reinforcement Learning},
+  booktitle={Proceedings of the 17th International Conference on Autonomous Agents and MultiAgent Systems},
+  series={AAMAS '18},
+  year={2018},
+  location={Stockholm, Sweden},
+  pages={434--442},
+  publisher={International Foundation for Autonomous Agents and Multiagent Systems},
+  keywords={limit order books, market making, td learning, tile coding},
 }
 ```
