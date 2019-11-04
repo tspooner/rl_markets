@@ -216,15 +216,15 @@ double DoubleAgent::getQb(State& state, int action)
 
     double w = get<0>(group_weights);
     for (int i = 0; i < N_TILINGS; i++)
-        Q += w*theta[features[i]];
+        Q += w*theta_b[features[i]];
 
     w = get<1>(group_weights);
     for (int i = N_TILINGS; i < 2*N_TILINGS; i++)
-        Q += w*theta[features[i]];
+        Q += w*theta_b[features[i]];
 
     w = get<2>(group_weights);
     for (int i = N_TILINGS; i < 3*N_TILINGS; i++)
-        Q += w*theta[features[i]];
+        Q += w*theta_b[features[i]];
 
     return Q;
 }
@@ -233,7 +233,7 @@ void DoubleAgent::updateQb(double update)
 {
     double scaled_update = update / N_TILINGS;
     for (auto it = traces.begin(); it != traces.end(); it++)
-        theta[*it] += scaled_update * traces.get(*it);
+        theta_b[*it] += scaled_update * traces.get(*it);
 }
 
 int DoubleAgent::argmaxQb(State& state)
