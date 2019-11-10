@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include "../build/ext/spdlog/src/spdlog/tests/catch.hpp"
 #include "market/book.h"
 #include "utilities/comparison.h"
 
